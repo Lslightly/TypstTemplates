@@ -12,17 +12,13 @@ set "targetDirectory=%1"
 REM Get the current script directory
 set "scriptPath=%~dp0"
 
-REM Define an array of folders to link
-set "folders=templates fonts"
+REM Create symbolic link for the entire script directory
+mklink /D "!targetDirectory!\TypstTemplates" "!scriptPath!"
 
-REM Create symbolic links for folders in the array
-for %%F in (%folders%) do (
-    mklink /D "!targetDirectory!\%%F" "!scriptPath!\%%F"
-    if !errorlevel! neq 0 (
-        echo Failed to create symbolic link for folder %%F
-        exit /b 1
-    )
+if errorlevel 1 (
+    echo Failed to create symbolic link to TypstTemplates folder
+    exit /b 1
+) else (
+    echo Symbolic link to TypstTemplates folder created successfully
+    exit /b 0
 )
-
-echo Symbolic links created successfully
-exit /b 0
