@@ -8,7 +8,13 @@
   set document(author: authors.map(a => a.name), title: title)
   set page(numbering: "1", number-align: center)
   set text(font: 字体.楷体, lang: "zh")
-  set heading(numbering: (..num) => "题")
+  set heading(numbering: (..nums) => 
+      if nums.pos().len() == 1 {
+        [题]
+      } else {
+        (nums.pos().slice(1).map(str).join(".")+")")
+      }
+  )
 
   // Title row.
   align(center)[
