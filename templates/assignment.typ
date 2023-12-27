@@ -2,7 +2,7 @@
 // It takes your content and some metadata and formats it.
 // Go ahead and customize it to your liking!
 #import "font.typ": *
-#import "figure.typ": *
+#import "code.typ": *
 #let project(title: "", authors: (), body) = {
   // Set the document's basic properties.
   set document(author: authors.map(a => a.name), title: title)
