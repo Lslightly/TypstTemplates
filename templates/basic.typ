@@ -1,13 +1,11 @@
 // The project function defines how your document looks.
 // It takes your content and some metadata and formats it.
 // Go ahead and customize it to your liking!
-#import "font.typ": *
-#import "code.typ": *
 #let project(title: "", authors: (), body) = {
   // Set the document's basic properties.
   set document(author: authors.map(a => a.name), title: title)
   set page(numbering: "1", number-align: center)
-  set text(font: 字体.楷体, lang: "zh")
+  set text(font: "楷体", lang: "zh")
   set heading(numbering: "1.1")
 
   // Title row.

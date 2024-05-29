@@ -1,5 +1,6 @@
-#import "@preview/ctheorems:1.1.0": *
+#import "@preview/ctheorems:1.1.2": *
 #show: thmrules
+
 #let theorem = thmbox("theorem", "Theorem", fill: rgb("#eeffee"))
 #let corollary = thmplain(
   "corollary",
@@ -8,14 +9,9 @@
   titlefmt: strong
 )
 #let definition = thmbox("definition", "Definition", inset: (x: 1.2em, top: 1em))
-#let lemma = thmbox("lemma", "Lemma", fill: rgb("#eeeeff"))
 
 #let example = thmplain("example", "Example").with(numbering: none)
-#let proof = thmplain(
-  "proof",
-  "Proof",
-  bodyfmt: body => [#align(body, left) #h(1fr) $square$]
-).with(numbering: none)
+#let proof = thmproof("proof", "Proof")
 
 // = Prime numbers
 
